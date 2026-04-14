@@ -1,52 +1,84 @@
 ---
-title: "First entry: Hi"
+title: "First Entry: Hi"
 date: 2026-04-13
+tags: [homelab, vpn, wireguard, networking] 
 ---
 
-Ever since I had a computer I've have been trying to find my next project; wether setting up audio devies for music productions or spinning a small Maplestory server for me and my counsin; I have been flirting with various skills and technologies for a long time. As an adult as I progressively like to complicate my life with newer more complex proyects, I found myself not documenting my journey.
+Ever since I had a computer, I’ve been chasing my next project.
 
-This leads me to start a project, pick up skills, learn through trial and move on with the next project. Though this issue also leads me to forget all my learning moments and stumble with previously encounter errors or issues and find myself with a new list of issues all because I have little to know documentation.
+From setting up audio devices for music production to spinning up a small MapleStory server for me and my cousins, I’ve always been exploring different technologies. Over time, that curiosity turned into a habit: start a project, learn a lot, and then move on.
 
-You can expect a wide range of subjects to be looked at as I go through my blogging journey. Starting with current passion project.
+The problem? I never documented anything.
 
-*-Setting up my HomeLab Server.-*
+That meant I kept running into the same issues over and over again, relearning lessons I had already figured out before.
 
-I have been working on lifting my server since last December and got a few cool components, including an ER605 Router which is a great all around router for anybody starting a home server. 
+So this blog is my attempt to fix that.
 
-I have previously worked with setting up a Wireguard VPN with a raspberrypi and that worked a good 70% of the time. I didnt know why it didnt work or why it did work. 
+## Current Project: Home Lab Server
 
-Fast foward with my ER605 and I managed to set up My Wireguard working within ER605; It worked 95% of the time; that other 5% of the time was if I ever looked at the router the wrong way and tried to make it a bit more efficient. 
+Right now, I’m focused on building out my home lab.
 
-If I updated the a Client entry or the server it just wouldnt work. This had me recoverying a Backup configuration which magically had it working. 
+I started working on my server last December and picked up some solid components along the way, including the TP-Link ER605, a great entry-level router for anyone getting into home networking.
 
-I spent many early morning and late evenings trying to get this to work reliably. And that when I finally learned about CGNAT.
+Before this, I had a WireGuard VPN running on a Raspberry Pi. It worked... about 70% of the time.
 
-CGNAT is good networking solution for those uninitiated in the tech world; but for powerusers that want to get the most of their internet, it makes network routing a nightmare.
+The problem was: I had no idea *why* it worked, or why it didn’t.
 
-And after 4 months of accepting that my VPN had a 5% failure rate. The worse happened.
+## The 95% Problem
 
-That 5% failure rate went up to 100%. I tried everything to get the VPN working again:
+After upgrading to the ER605, I set up WireGuard directly on the router.
 
-- Bouncing all my systems
-- Reconfiguring the VPN Service
-- Factory reseting my Router
-- Trying a different VPN Service
-- IPV6 routing (not supported by ISP)
+This time, it worked 95% of the time.
 
-I had given over a workweek's worth of troubleshooting to this issue and finally found a solution... contacting my ISP.
+The remaining 5%?
 
-After explaining my issue and confirming with my ISP that I was behind a CGNAT and it was causing issues; they gladly removed me out of it.
+If I changed *anything* a client config, a setting, anything it would break. The only fix was restoring a backup that somehow “just worked.”
 
-One DDNS configuration later; and that 100% faliure transformed to a 100% success. 
+That’s when things got frustrating.
 
-Multi system reboots are not phasing my set up now.
+## When 5% Became 100%
 
-There are other solutions that could handle this with ease and my resonds I left them as last resorts.
-- A public Static IP (Additional costs)
-- a VPS service (Addittional Costs + introducting an external system that needs)
-- IPV6 if ISP supports it (not supported by ISP)
+Eventually, that 5% failure rate turned into a full 100% failure.
 
-Now that I have a stable VPN connection; I know my work can progress at a constant pace.
+Nothing worked anymore.
 
+I tried everything:
+- Rebooting all systems  
+- Reconfiguring WireGuard  
+- Factory resetting the router  
+- Switching VPN methods  
+- Testing IPv6 (not supported by my ISP)
 
+After spending way too many late nights troubleshooting, I finally confronted the real issue:
 
+## CGNAT
+
+I was behind CGNAT.
+
+For most users, CGNAT is fine. But if you're trying to host services or run a VPN, it becomes a nightmare.
+
+## The Fix
+
+I contacted my ISP.
+
+After explaining the issue, they confirmed I was behind CGNAT and removed me from it.
+
+One DDNS setup later, and everything changed:
+
+- 100% failure is now 100% success  
+- Stable connections  
+- No more random breakage  
+
+## Alternatives I Considered
+
+There were other options, but I left them as last resorts:
+
+- Static public IP (extra cost)  
+- VPS tunneling (more complexity + cost)  
+- IPv6 (not supported by my ISP)  
+
+## Where I’m At Now
+
+Now that my VPN is stable, I can finally move forward with my lab without fighting my network every step of the way.
+
+This time, documentation is part of the process. 
